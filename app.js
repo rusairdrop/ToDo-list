@@ -32,7 +32,7 @@ function displayTodoList() {
     displayTodo += `
       <li class="todo_item" data-attr="${index}">
         <input type="checkbox" id="item_${index}" ${item.checked ? 'checked' : ''}>
-        <label for="item_${index}" ${item.checked ? 'style="text-decoration: line-through"' : ''} >${item.todo}</label>
+        <label for="item_${index}" style="${item.checked ? 'text-decoration: line-through' : ''}" >${item.todo}</label>
         <img class="btn_close" src="./img/close.svg" alt="" data-attr="${index}">
       </li>
       `;
