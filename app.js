@@ -54,3 +54,18 @@ document.addEventListener('click', function (event) {
     });
   }
 });
+
+todo.addEventListener('change', function (event) {
+  let idInput = event.target.getAttribute('id');
+  let forLabel = todo.querySelector('[for=' + idInput + ']');
+  
+  
+  
+  
+  if (event.target.checked) {
+    forLabel.style.textDecoration = 'line-through';
+  } else {
+    forLabel.style.textDecoration = '';
+  }
+  
+});
