@@ -82,3 +82,10 @@ input[type=checkbox], label {
   font-size: .9rem;
   line-height: 1.8rem;
 }
+.btn_close{
+  display: block;
+  margin-left: auto;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+}
