@@ -13,7 +13,7 @@ body {
 .todo_list {
   background-color: #20242a;
   max-width: 400px;
-  margin: 50px auto 0;
+  margin: 30px auto 0;
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 2px 10px 0 #816516;
@@ -46,7 +46,7 @@ body {
 .todo_text::placeholder{
   color: #4c5565;
 }
-.todo_add {
+.todo_btn {
   margin: 0 auto;
   padding: 0;
   width: 95%;
@@ -57,6 +57,28 @@ body {
   background-color: #c78814;
   font-weight: 700;
   font-size: .9rem;
-  color: #353b46;
+  color: #22262d;
   text-transform: uppercase;
+}
+.todo_btn:hover {
+  background-color: #a67411;
+}
+.todo {
+  padding: 0 10px;
+}
+.todo li{
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  color: #d0d0d0;
+}
+.todo li:not(:last-child) {
+  border-bottom: 1px solid #3a424d;
+}
+input[type=checkbox], label {
+
+  margin: 5px;
+  cursor: pointer;
+  font-size: .9rem;
+  line-height: 1.8rem;
 }
