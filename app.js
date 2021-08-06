@@ -31,8 +31,8 @@ function displayTodoList() {
   todoList.map(function (item, index) {
     displayTodo += `
       <li class="todo_item" data-attr="${index}">
-        <input type="checkbox" id="item_${index}" ${item.checked ? 'checked' : ''}>
-        <label for="item_${index}" style="${item.checked ? 'text-decoration: line-through' : ''}" >${item.todo}</label>
+        <input type="checkbox" id="${index}" ${item.checked ? 'checked' : ''}>
+        <label for="${index}" style="${item.checked ? 'text-decoration: line-through' : ''}" >${item.todo}</label>
         <img class="btn_close" src="./img/close.svg" alt="" data-attr="${index}">
       </li>
       `;
@@ -58,7 +58,7 @@ document.addEventListener('click', function (event) {
 
 todo.addEventListener('change', function (event) {
   let idInput = event.target.getAttribute('id');
-  let forLabel = todo.querySelector('[for=' + idInput + ']');
+  let forLabel = todo.querySelector('[for="' + idInput + '"]');
   let valueLabel = forLabel.innerHTML;
   
   todoList.forEach(function (item) {
@@ -71,7 +71,11 @@ todo.addEventListener('change', function (event) {
   
   if (event.target.checked) {
     forLabel.style.textDecoration = 'line-through'
+    todoList.push(todoList.splice(idInput,1)[0]);
   } else {
     forLabel.style.textDecoration = ''
+    todoList.unshift(todoList.splice(idInput, 1)[0]);
   }
+  displayTodoList();
+  localStorage.setItem('todo', JSON.stringify(todoList));
 });
