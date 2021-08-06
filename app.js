@@ -22,7 +22,7 @@ todoBtn.addEventListener('click', function () {
     checked: false,
   }
   
-  todoList.push(newTodo);
+  todoList.unshift(newTodo);
   displayTodoList();
   
   localStorage.setItem('todo', JSON.stringify(todoList));
@@ -31,14 +31,14 @@ todoBtn.addEventListener('click', function () {
 });
 
 function displayTodoList() {
-  if (todoList.length === 0) todo.innerHTML = '';
+  if (todoList.length === 0) todo.innerHTML = 'нет активных задач';
   
   let displayTodo = '';
   todoList.map(function (item, index) {
     displayTodo += `
       <li class="todo_item" data-attr="todo_${index}">
         <input type="checkbox" data-attr="${index}" id="todo_${index}" ${item.checked ? 'checked' : ''}>
-        <label for="todo_${index}" style="${item.checked ? 'text-decoration: line-through' : ''}" >${item.todo}</label>
+        <label class="todo_label" for="todo_${index}" style="${item.checked ? 'text-decoration: line-through' : ''}" >${item.todo}</label>
         <img class="btn_close" src="./img/close.svg" alt="" data-attr="todo_${index}">
       </li>
       `;
@@ -55,7 +55,7 @@ function displayCompletedList() {
     displayCompleted += `
       <li class="todo_item" data-attr="completed_${index}">
         <input type="checkbox" data-attr="${index}" id="completed_${index}" ${item.checked ? 'checked' : ''}>
-        <label for="completed_${index}" style="${item.checked ? 'text-decoration: line-through' : ''}" >${item.todo}</label>
+        <label class="todo_label" for="completed_${index}" style="${item.checked ? 'text-decoration: line-through' : ''}" >${item.todo}</label>
         <img class="btn_close" src="./img/close.svg" alt="" data-attr="completed_${index}">
       </li>
       `;
@@ -105,7 +105,7 @@ todo.addEventListener('change', function (event) {
   
   if (event.target.checked) {
     forLabelTodo.style.textDecoration = 'line-through'
-    completedList.push(todoList.splice(DataAtr, 1)[0]);
+    completedList.unshift(todoList.splice(DataAtr, 1)[0]);
   }
   
   displayTodoList();

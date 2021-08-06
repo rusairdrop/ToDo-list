@@ -7,12 +7,15 @@ body {
   background-color: #262a32;
   color: #c78814;
 }
+h1 {
+  margin: 10px;
+}
 .container {
   margin: 0 auto;
 }
 .todo_list {
   background-color: #20242a;
-  max-width: 400px;
+  max-width: 900px;
   margin: 30px auto 0;
   padding: 15px;
   border-radius: 10px;
@@ -20,7 +23,6 @@ body {
 .todo_title {
   font-size: 2rem;
   text-align: center;
-  margin-top: 20px;
 }
 .create_new_todo {
   display: flex;
@@ -29,7 +31,6 @@ body {
 .todo_text {
   margin: 15px auto;
   padding: 1px 10px;
-  width: 100%;
   height: 35px;
   outline: none;
   border: 1px solid #3a424d;
@@ -48,7 +49,7 @@ body {
 .todo_btn {
   margin: 0 auto;
   padding: 0;
-  width: 95%;
+  width: 99%;
   height: 35px;
   cursor: pointer;
   border: none;
@@ -64,20 +65,28 @@ body {
   background-color: #a67411;
 }
 .todo {
-  padding: 0 10px;
+  margin: 0;
+  padding: 15px 10px;
+  min-height: 50px;
+  color: #4c5565;
+  text-transform: uppercase;
+  font-size: .9rem;
+
 }
 .todo li{
   display: flex;
   align-items: center;
   list-style-type: none;
   color: #d0d0d0;
+  text-transform: none;
 }
 .todo li:not(:last-child) {
   border-bottom: 1px dashed #3a424d;
 }
 .completed {
+  margin: 0;
   padding: 0 10px;
-  margin-top: 20px;
+  min-height: 20px;
   border-top: 1px solid #c78814;
 }
 .completed li{
@@ -95,8 +104,14 @@ input[type=checkbox], label {
   cursor: pointer;
   font-size: .9rem;
   line-height: 1.8rem;
-  max-width: 100%;
   word-wrap: break-word;
+}
+.todo_label {
+  max-width: 90%;
+}
+input[type=text], label {
+  margin: 10px auto;
+  width: 100%;
 }
 .btn_close{
   display: block;
@@ -105,4 +120,14 @@ input[type=checkbox], label {
   width: 10px;
   height: 10px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 425px){
+  body {
+    background-color: #20242a;
+  }
+  .todo_list {
+    margin: 0;
+    padding: 15px 5px 5px;
+  }
 }
