@@ -1,6 +1,6 @@
 * {
   font-family: 'Raleway', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   box-sizing: border-box;
 }
 body {
@@ -71,7 +71,6 @@ h1 {
   color: #4c5565;
   text-transform: uppercase;
   font-size: .9rem;
-
 }
 .todo li{
   display: flex;
@@ -122,12 +121,18 @@ input[type=text], label {
   cursor: pointer;
 }
 
-@media screen and (max-width: 425px){
+@media screen and (max-width: 768px){
+  * {
+    font-size: 18px;
+  }
   body {
     background-color: #20242a;
   }
   .todo_list {
     margin: 0;
     padding: 15px 5px 5px;
+  }
+  .todo_btn {
+    font-size: 0.8rem;
   }
 }
