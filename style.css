@@ -135,4 +135,7 @@ input[type=text], label {
   .todo_btn {
     font-size: 0.8rem;
   }
+  .todo_label {
+    max-width: 80%;
+  }
 }
