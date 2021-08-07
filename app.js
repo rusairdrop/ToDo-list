@@ -140,3 +140,33 @@ completed.addEventListener('change', function (event) {
   displayTodoList();
   displayCompletedList();
 });
+
+
+const controlsList = document.querySelectorAll('.controls_item');
+
+for (let i = 0; i < controlsList.length; i++) {
+  
+  controlsList[i].onclick = function () {
+    
+    for (let k = 0; k < controlsList.length; k++) {
+      controlsList[k].classList.remove('controls_item_active');
+    }
+    this.classList.add('controls_item_active');
+    
+    const controlsAttr = this.getAttribute('data-ctrl');
+    
+    if (controlsAttr === 'ctrl_1') {
+      todo.classList.add('todo_active');
+      completed.classList.add('completed_active', 'completed_active_border');
+    }
+    if (controlsAttr === 'ctrl_2') {
+      todo.classList.add('todo_active');
+      completed.classList.remove('completed_active');
+    }
+    if (controlsAttr === 'ctrl_3') {
+      todo.classList.remove('todo_active');
+      completed.classList.remove('completed_active_border');
+      completed.classList.add('completed_active');
+    }
+  }
+}

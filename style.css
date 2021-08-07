@@ -3,31 +3,38 @@
   font-size: 18px;
   box-sizing: border-box;
 }
+
 body {
   background-color: #262a32;
   color: #c78814;
 }
+
 h1 {
   margin: 10px;
 }
+
 .container {
   margin: 0 auto;
 }
+
 .todo_list {
   background-color: #20242a;
-  max-width: 900px;
+  max-width: 700px;
   margin: 30px auto 0;
   padding: 15px;
   border-radius: 10px;
 }
+
 .todo_title {
   font-size: 2rem;
   text-align: center;
 }
+
 .create_new_todo {
   display: flex;
   flex-direction: column;
 }
+
 .todo_text {
   margin: 15px auto;
   padding: 1px 10px;
@@ -40,12 +47,15 @@ h1 {
   font-weight: 500;
   font-size: .9rem;
 }
+
 .todo_text:focus {
   border: 1px solid #c78814;
 }
-.todo_text::placeholder{
+
+.todo_text::placeholder {
   color: #4c5565;
 }
+
 .todo_btn {
   margin: 0 auto;
   padding: 0;
@@ -61,10 +71,13 @@ h1 {
   text-transform: uppercase;
   transition: all 0.3s ease;
 }
+
 .todo_btn:hover {
   background-color: #a67411;
 }
+
 .todo {
+  display: none;
   margin: 0;
   padding: 15px 10px;
   min-height: 50px;
@@ -72,31 +85,50 @@ h1 {
   text-transform: uppercase;
   font-size: .9rem;
 }
-.todo li{
+
+.todo.todo_active {
+  display: block;
+}
+
+.todo li {
   display: flex;
   align-items: center;
   list-style-type: none;
   color: #d0d0d0;
   text-transform: none;
 }
+
 .todo li:not(:last-child) {
   border-bottom: 1px dashed #3a424d;
 }
+
 .completed {
+  display: none;
   margin: 0;
-  padding: 0 10px;
+  padding: 15px 10px;
   min-height: 20px;
+}
+
+.completed.completed_active {
+  display: block;
+  border-top: none;
+}
+
+.completed.completed_active_border {
   border-top: 1px solid #c78814;
 }
-.completed li{
+
+.completed li {
   display: flex;
   align-items: center;
   list-style-type: none;
   color: #3a424d;
 }
+
 .completed li:not(:last-child) {
   border-bottom: 1px dashed #3a424d;
 }
+
 input[type=checkbox], label {
   margin: 5px;
   padding: 5px;
@@ -105,15 +137,17 @@ input[type=checkbox], label {
   line-height: 1.8rem;
   word-wrap: break-word;
 }
+
 .todo_label {
   max-width: 90%;
 }
+
 input[type=text], label {
   margin: 10px auto;
   width: 100%;
 }
-.btn_close{
-  display: block;
+
+.btn_close {
   margin-left: auto;
   margin-right: 10px;
   width: 10px;
@@ -121,20 +155,53 @@ input[type=text], label {
   cursor: pointer;
 }
 
-@media screen and (max-width: 768px){
-  * {
-    font-size: 18px;
-  }
+.footer {
+
+}
+
+.todo_controls {
+
+}
+
+.controls_list {
+  display: flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+  padding: 0;
+
+}
+
+.controls_list li {
+  font-size: .8rem;
+  cursor: pointer;
+}
+
+.controls_item {
+  font-weight: 500;
+  color: #735113;
+}
+
+.controls_item.controls_item_active {
+  font-weight: 700;
+  color: #c78814;
+}
+
+
+@media screen and (max-width: 768px) {
   body {
     background-color: #20242a;
+    font-size: 18px;
   }
+
   .todo_list {
     margin: 0;
     padding: 15px 5px 5px;
   }
+
   .todo_btn {
     font-size: 0.8rem;
   }
+
   .todo_label {
     max-width: 80%;
   }
