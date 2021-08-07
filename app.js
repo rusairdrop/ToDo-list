@@ -14,9 +14,7 @@ if (localStorage.getItem('completed')) {
   displayCompletedList();
 }
 
-todoBtn.addEventListener('click', function () {
-  if (!todoInput.value) return;
-  
+function addNewTask() {
   let newTodo = {
     todo: todoInput.value,
     checked: false,
@@ -26,8 +24,18 @@ todoBtn.addEventListener('click', function () {
   displayTodoList();
   
   localStorage.setItem('todo', JSON.stringify(todoList));
-  
   todoInput.value = '';
+}
+
+todoBtn.addEventListener('click', function () {
+  if (!todoInput.value) return;
+  addNewTask();
+});
+
+todoInput.addEventListener('keydown', function (e) {
+  if (e.keyCode === 13 && todoInput.value) {
+    addNewTask();
+  }
 });
 
 function displayTodoList() {
