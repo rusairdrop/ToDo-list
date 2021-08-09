@@ -144,7 +144,7 @@ input[type=checkbox], label {
 }
 
 input[type=text], label {
-  margin: 10px auto;
+  margin: 0 auto;
   width: 100%;
 }
 
@@ -212,9 +212,5 @@ input[type=text], label {
     bottom: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.06);
-  }
-
-  .controls_item {
-
   }
 }
