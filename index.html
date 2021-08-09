@@ -15,30 +15,29 @@
 <body>
 <div class="container">
   <div class="todo_list">
-    <h1 class="todo_title">ToDo List</h1>
-    <div class="create_new_todo">
-      <label>
-        <input type="text" class="todo_text" placeholder="новая задача">
-      </label>
-      <button class="todo_btn">Добавить</button>
+    <div class="todo_header">
+      <h1 class="todo_title">ToDo List</h1>
+      <div class="create_new_todo">
+        <label>
+          <input type="text" class="todo_text" placeholder="новая задача">
+        </label>
+        <button class="todo_btn">Добавить</button>
+      </div>
     </div>
     
-    <div class="wrapper">
+    <div class="todo_content">
       <ul class="todo todo_active "></ul>
       <ul class="completed completed_active completed_active_border"></ul>
     </div>
     
-    <div class="footer">
-      <div class="todo_controls">
-        <ul class="controls_list">
-          <li class="controls_item controls_item_active" data-ctrl="ctrl_1">Все задачи</li>
-          <li class="controls_item" data-ctrl="ctrl_2">Активные</li>
-          <li class="controls_item" data-ctrl="ctrl_3">Выполненные</li>
-        </ul>
-      </div>
+    <div class="todo_footer">
+      <ul class="controls_list">
+        <li class="controls_item controls_item_active" data-ctrl="ctrl_1">Все задачи</li>
+        <li class="controls_item" data-ctrl="ctrl_2">Активные</li>
+        <li class="controls_item" data-ctrl="ctrl_3">Выполненные</li>
+      </ul>
     </div>
   </div>
-  
 </div>
 
 <script src="app.js"></script>

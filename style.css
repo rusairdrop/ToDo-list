@@ -1,12 +1,13 @@
 * {
-  font-family: 'Raleway', sans-serif;
-  font-size: 18px;
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
   background: linear-gradient(#7EC7BD, #1F83A2) fixed;
+
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
 }
 
 h1 {
@@ -18,16 +19,31 @@ h1 {
 }
 
 .todo_list {
+  position: absolute;
+  top: 50px;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   background-color: #fff;
-  box-shadow: 0 0 30px rgba(0,0,0,0.5);
-  max-width: 700px;
-  margin: 30px auto 0;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+
   padding: 15px;
   border-radius: 10px;
 }
 
+.todo_header {
+  height: 150px;
+}
+
 .todo_title {
-  font-size: 2rem;
+  margin-top: 0;
+  font-size: 1.9rem;
   text-align: center;
   color: #191D31;
 }
@@ -47,7 +63,7 @@ h1 {
   background: #f4f4f4;
   color: #171717;
   font-weight: 500;
-  font-size: .9rem;
+  font-size: 1rem;
 }
 
 .todo_text:focus {
@@ -76,17 +92,22 @@ h1 {
 
 .todo_btn:hover {
   background: linear-gradient(150deg, rgb(106, 179, 169) 0%, rgba(11, 111, 142, 1) 100%);
-  color: #c7c7c7;
+  color: #dcdcdc;
+}
+
+.todo_content {
+  overflow-y: auto;
+  height: 100%;
+}
+
+.todo_item {
+  justify-content: space-between;
 }
 
 .todo {
   display: none;
   margin: 0;
   padding: 15px 10px;
-  min-height: 50px;
-  color: #4c5565;
-  text-transform: uppercase;
-  font-size: .9rem;
 }
 
 .todo.todo_active {
@@ -118,7 +139,7 @@ h1 {
 }
 
 .completed.completed_active_border {
-  border-top: 1px solid #000000;
+  border-top: 2px solid #1F83A2;
 }
 
 .completed li {
@@ -134,10 +155,10 @@ h1 {
 
 input[type=checkbox], label {
   margin: 5px;
-  padding: 5px;
+  padding: 10px 0;
   cursor: pointer;
-  font-size: .9rem;
-  line-height: 1.8rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
   word-wrap: break-word;
 }
 
@@ -151,19 +172,15 @@ input[type=text], label {
 }
 
 .btn_close {
-  margin-left: auto;
-  margin-right: 10px;
+  margin: 10px;
+
   width: 10px;
   height: 10px;
   cursor: pointer;
 }
 
-.footer {
-
-}
-
-.todo_controls {
-
+.todo_footer {
+  padding-top: 15px;
 }
 
 .controls_list {
@@ -171,14 +188,15 @@ input[type=text], label {
   justify-content: space-evenly;
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 .controls_list li {
-  font-size: .8rem;
   cursor: pointer;
 }
 
 .controls_item {
+  font-size: .9rem;
   font-weight: 500;
   color: #949494;
 }
@@ -188,17 +206,57 @@ input[type=text], label {
   color: #000000;
 }
 
+::-webkit-scrollbar-button {
+  background-repeat: no-repeat;
+  width: 6px;
+  height: 0;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #7EC7BD;
+  box-shadow: 0 0 3px #1F83A2 inset;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #18677c;
+  box-shadow: 0 1px 1px #7EC7BD inset;
+  background-image: url('img/scrollbar.png');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+::-webkit-resizer {
+  background-repeat: no-repeat;
+  width: 7px;
+  height: 0;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
 
 @media screen and (max-width: 768px) {
   body {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .todo_list {
-    margin: 0 auto;
-    padding: 15px 5px 5px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: none;
+    width: auto;
     border-radius: 0;
+    padding: 10px;
+  }
 
+  .todo_title {
+    margin-bottom: 0;
   }
 
   .todo_btn {
@@ -206,20 +264,26 @@ input[type=text], label {
   }
 
   .todo_label {
+    margin: 0 0 0 10px;
     max-width: 80%;
+    font-size: .9rem;
   }
 
-  .footer {
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  .todo_content {
+
+  }
+
+  .btn_close {
+    /*margin-left: auto;*/
+    /*margin-right: 5px;*/
+  }
+
+  .todo_footer {
+
   }
 
   .controls_item {
-    color: #1c1c1c;
+    font-size: .9rem;
   }
 
   .controls_item.controls_item_active {
