@@ -188,13 +188,13 @@ function displayControlsList () {
   for (let i = 0; i < controlsList.length; i++) {
     const controlsAttr = controlsList[i].getAttribute('data-ctrl');
     if (controlsAttr === 'ctrl_1') {
-      controlsList[i].innerHTML = `Все ( ${todoList.length + completedList.length} )`
+      controlsList[i].textContent = `Все задачи (${todoList.length + completedList.length})`
     }
     if (controlsAttr === 'ctrl_2') {
-      controlsList[i].innerHTML = `Активные ( ${todoList.length} )`
+      controlsList[i].textContent = `Активные (${todoList.length})`
     }
     if (controlsAttr === 'ctrl_3') {
-      controlsList[i].innerHTML = `Выполненные ( ${completedList.length} )`
+      controlsList[i].textContent = `Выполненные (${completedList.length})`
     }
   }
 }
