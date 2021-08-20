@@ -272,7 +272,7 @@ input[type=text], label {
   .todo_label {
     margin: 0 0 0 10px;
     max-width: 80%;
-    font-size: .9rem;
+    font-size: 1rem;
   }
 
   .todo_content {
@@ -289,7 +289,7 @@ input[type=text], label {
   }
 
   .controls_item {
-    font-size: .9rem;
+    font-size: .8rem;
   }
 
   .controls_item.controls_item_active {
