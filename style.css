@@ -265,7 +265,7 @@ input[type=text], label {
   }
 
   .todo_btn {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     width: 35%;
   }
 
@@ -289,10 +289,20 @@ input[type=text], label {
   }
 
   .controls_item {
-    font-size: .8rem;
+    font-size: .9rem;
   }
 
   .controls_item.controls_item_active {
     color: #000000;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .todo_btn {
+    font-size: 0.8rem;
+  }
+
+  .controls_item {
+    font-size: .7rem;
   }
 }
