@@ -6,8 +6,8 @@ body {
   margin: 0;
   background: linear-gradient(#7EC7BD, #1F83A2) fixed;
 
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
 }
 
 h1 {
@@ -20,11 +20,11 @@ h1 {
 
 .todo_list {
   position: absolute;
-  top: 50px;
-  bottom: 50px;
+  top: 3%;
+  bottom: 3%;
   left: 50%;
   transform: translateX(-50%);
-  width: 700px;
+  width: 800px;
 
   display: flex;
   flex-direction: column;
@@ -33,7 +33,7 @@ h1 {
   background-color: #fff;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 
-  padding: 15px;
+  padding: 10px;
   border-radius: 10px;
 }
 
@@ -42,7 +42,7 @@ h1 {
 }
 
 .todo_title {
-  margin-top: 0;
+  margin-bottom: 20px;
   font-size: 1.9rem;
   text-align: center;
   color: #191D31;
@@ -51,23 +51,29 @@ h1 {
 .create_new_todo {
   display: flex;
   flex-direction: row;
+  margin: 10px;
+  position: relative;
 }
 
 .create_new_todo label {
-  margin: 0 -30px 0 0;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .todo_text {
-  padding: 1px 35px 1px 20px;
-  height: 35px;
+
+  padding: 1px 20px;
+  height: 44px;
   outline: none;
   border: 1px solid #efefef;
-  border-radius: 20px;
+  border-radius: 30px;
   background: #f4f4f4;
   color: #171717;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 1rem;
 }
 
@@ -80,17 +86,21 @@ h1 {
 }
 
 .todo_btn {
-  margin: 10px auto;
+  position: absolute;
+  top: 2px;
+  right: 2px;
   padding: 0;
-  width: 25%;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  border: none;
-  border-radius: 20px;
+  border: 1px solid #efefef;
+  border-radius: 50%;
   background: linear-gradient(150deg, rgba(126, 199, 189, 1) 0%, rgba(31, 131, 162, 1) 100%);
   font-weight: 700;
   font-size: .9rem;
-  color: #383838;
+  line-height: 1;
+  color: #ffffff;
+  text-align: center;
   text-transform: uppercase;
   transition: all 0.3s ease;
 }
@@ -112,7 +122,7 @@ h1 {
 .todo {
   display: none;
   margin: 0;
-  padding: 15px 10px;
+  padding: 10px 10px;
 }
 
 .todo.todo_active {
@@ -128,7 +138,7 @@ h1 {
 }
 
 .todo li:not(:last-child) {
-  border-bottom: 1px dashed #3a424d;
+  border-bottom: 1px dashed #BAC3CB;
 }
 
 .completed {
@@ -144,7 +154,7 @@ h1 {
 }
 
 .completed.completed_active_border {
-  border-top: 2px solid #1F83A2;
+  border-top: 1px solid #1F83A2;
 }
 
 .completed li {
@@ -172,7 +182,7 @@ input[type=checkbox], label {
 }
 
 input[type=text], label {
-  margin: 0 auto;
+  margin: 0;
   width: 100%;
 }
 
@@ -186,6 +196,7 @@ input[type=text], label {
 
 .todo_footer {
   padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .controls_list {
@@ -197,13 +208,19 @@ input[type=text], label {
 }
 
 .controls_list li {
+  width: 33.3333%;
+  text-align: center;
   cursor: pointer;
 }
 
 .controls_item {
-  font-size: .9rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 400;
   color: #949494;
+}
+
+.controls_item:not(:last-child) {
+  border-right: 2px solid #BAC3CB;
 }
 
 .controls_item.controls_item_active {
@@ -257,7 +274,7 @@ input[type=text], label {
     transform: none;
     width: auto;
     border-radius: 0;
-    padding: 10px;
+    padding: 5px 5px 0 5px;
   }
 
   .todo_title {
@@ -266,7 +283,6 @@ input[type=text], label {
 
   .todo_btn {
     font-size: 0.9rem;
-    width: 35%;
   }
 
   .todo_label {

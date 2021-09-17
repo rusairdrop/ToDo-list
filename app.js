@@ -22,7 +22,7 @@ function addNewTask() {
   
   todoList.unshift(newTodo);
   displayTodoList();
-  displayControlsList ()
+  displayControlsList()
   
   localStorage.setItem('todo', JSON.stringify(todoList));
   todoInput.value = '';
@@ -40,7 +40,7 @@ todoInput.addEventListener('keydown', function (e) {
 });
 
 function displayTodoList() {
-  if (todoList.length === 0) todo.innerHTML = 'нет активных задач';
+  if (todoList.length === 0) todo.innerHTML = 'no active tasks';
   
   let displayTodo = '';
   todoList.map(function (item, index) {
@@ -83,7 +83,7 @@ document.addEventListener('click', function (event) {
         todoList.splice(index, 1);
       }
       displayTodoList();
-      displayControlsList ()
+      displayControlsList()
       localStorage.setItem('todo', JSON.stringify(todoList));
     });
     
@@ -93,7 +93,7 @@ document.addEventListener('click', function (event) {
         completedList.splice(index, 1);
       }
       displayCompletedList();
-      displayControlsList ()
+      displayControlsList()
       localStorage.setItem('completed', JSON.stringify(completedList));
     });
   }
@@ -121,7 +121,7 @@ todo.addEventListener('change', function (event) {
   
   displayTodoList();
   displayCompletedList();
-  displayControlsList ()
+  displayControlsList()
   localStorage.setItem('todo', JSON.stringify(todoList));
   localStorage.setItem('completed', JSON.stringify(completedList));
 });
@@ -151,7 +151,7 @@ completed.addEventListener('change', function (event) {
   localStorage.setItem('completed', JSON.stringify(completedList));
   displayTodoList();
   displayCompletedList();
-  displayControlsList ()
+  displayControlsList()
 });
 
 
@@ -184,19 +184,19 @@ for (let i = 0; i < controlsList.length; i++) {
   }
 }
 
-function displayControlsList () {
+function displayControlsList() {
   for (let i = 0; i < controlsList.length; i++) {
     const controlsAttr = controlsList[i].getAttribute('data-ctrl');
     if (controlsAttr === 'ctrl_1') {
-      controlsList[i].textContent = `Все задачи (${todoList.length + completedList.length})`
+      controlsList[i].textContent = `All (${todoList.length + completedList.length})`
     }
     if (controlsAttr === 'ctrl_2') {
-      controlsList[i].textContent = `Активные (${todoList.length})`
+      controlsList[i].textContent = `Active (${todoList.length})`
     }
     if (controlsAttr === 'ctrl_3') {
-      controlsList[i].textContent = `Выполненные (${completedList.length})`
+      controlsList[i].textContent = `Completed (${completedList.length})`
     }
   }
 }
 
-displayControlsList ();
+displayControlsList();
