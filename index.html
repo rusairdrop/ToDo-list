@@ -27,9 +27,9 @@
   <meta name="application-name"
         content="ToDo">
   <meta name="msapplication-TileColor"
-        content="#00aba9">
+        content="#3c4249">
   <meta name="theme-color"
-        content="#18677c">
+        content="#3c4249">
   <link rel="stylesheet"
         href="style.css">
   <link rel="preconnect"
@@ -42,28 +42,10 @@
   <title>TODO List</title>
 </head>
 <body>
-<div class="container">
-  <div class="todo_list">
-    <div class="todo_header">
+<div class="todo_list">
+  <div class="todo_header">
+    <div class="header_inner">
       <h1 class="todo_title">ToDo List</h1>
-      <div class="create_new_todo">
-        <label>
-          <input type="text" class="todo_text" placeholder="Enter new task">
-        </label>
-        <button class="todo_btn">
-          <span class="material-icons">
-            add
-          </span>
-        </button>
-      </div>
-    </div>
-    
-    <div class="todo_content">
-      <ul class="todo todo_active "></ul>
-      <ul class="completed completed_active completed_active_border"></ul>
-    </div>
-    
-    <div class="todo_footer">
       <ul class="controls_list">
         <li class="controls_item controls_item_active" data-ctrl="ctrl_1"></li>
         <li class="controls_item" data-ctrl="ctrl_2"></li>
@@ -71,20 +53,40 @@
       </ul>
     </div>
   </div>
+  <div class="create_new_todo">
+    <label>
+      <input type="text" class="todo_text" placeholder="Add a task...">
+    </label>
+    <button class="todo_btn">
+          <span class="material-icons">
+            add
+          </span>
+    </button>
+  </div>
+  
+  <div class="todo_content">
+    <ul class="todo todo_active "></ul>
+    <ul class="completed completed_active completed_active_border"></ul>
+  </div>
+  
+  <div class="todo_footer">
+  
+  </div>
 </div>
 
 <script src="app.js"></script>
 <script>
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
+    window.addEventListener('load', function () {
       navigator.serviceWorker.register('/sw.js').then(
-      function(registration) {
-        // Registration was successful
-        console.log('ServiceWorker registration successful with scope: ', registration.scope); },
-      function(err) {
-        // registration failed :(
-        console.log('ServiceWorker registration failed: ', err);
-      });
+            function (registration) {
+              // Registration was successful
+              console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            },
+            function (err) {
+              // registration failed :(
+              console.log('ServiceWorker registration failed: ', err);
+            });
     });
   }
 </script>

@@ -13,9 +13,8 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#18677c",
-    "background_color": "#18677c",
+    "theme_color": "#3c4249",
+    "background_color": "#3c4249",
     "start_url": "https://todo.galyshev.pro/",
-    "display": "standalone",
-    "orientation": "portrait"
+    "display": "standalone"
 }

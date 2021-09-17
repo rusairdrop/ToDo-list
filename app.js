@@ -48,7 +48,7 @@ function displayTodoList() {
       <li class="todo_item" data-attr="todo_${index}">
         <input type="checkbox" data-attr="${index}" id="todo_${index}" ${item.checked ? 'checked' : ''}>
         <label class="todo_label" for="todo_${index}" style="${item.checked ? 'text-decoration: line-through' : ''}" >${item.todo}</label>
-        <img class="btn_close" src="./img/close.svg" alt="" data-attr="todo_${index}">
+        <span class="btn_close material-icons" data-attr="todo_${index}">delete_forever</span>
       </li>
       `;
     
@@ -65,7 +65,7 @@ function displayCompletedList() {
       <li class="todo_item" data-attr="completed_${index}">
         <input type="checkbox" data-attr="${index}" id="completed_${index}" ${item.checked ? 'checked' : ''}>
         <label class="todo_label" for="completed_${index}" style="${item.checked ? 'text-decoration: line-through' : ''}" >${item.todo}</label>
-        <img class="btn_close" src="./img/close.svg" alt="" data-attr="completed_${index}">
+        <span class="btn_close material-icons" data-attr="completed_${index}">delete_forever</span>
       </li>
       `;
     completed.innerHTML = displayCompleted;

@@ -4,8 +4,7 @@
 
 body {
   margin: 0;
-  /*background: linear-gradient(#7EC7BD, #1F83A2) fixed;*/
-  background: white;
+  background: #343A3F;
 
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
@@ -15,45 +14,44 @@ h1 {
   margin: 10px;
 }
 
-.container {
-  margin: 0 auto;
-}
-
 .todo_list {
-  position: absolute;
-  top: 3%;
-  bottom: 3%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 800px;
+  margin: 0 auto;
+  padding: 10px 15px;
+  width: 100%;
+  max-width: 1000px;
+  height: 100vh;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  background-color: #fff;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  background-color: #3C4249;
 
-  padding: 10px;
-  border-radius: 10px;
 }
 
 .todo_header {
+  background: #3C4249;
+  border-bottom: 2px solid #343A41;
+}
+
+.header_inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
 }
 
 .todo_title {
-  margin-bottom: 20px;
   font-size: 2rem;
   text-align: center;
-  color: #191D31;
+  color: #ffffff;
 }
 
 .create_new_todo {
+  position: relative;
   display: flex;
   flex-direction: row;
-  margin: 10px;
-  position: relative;
+  margin: 20px;
 }
 
 .create_new_todo label {
@@ -66,24 +64,23 @@ h1 {
 }
 
 .todo_text {
-
   padding: 1px 20px;
   height: 44px;
   outline: none;
-  border: 1px solid #efefef;
+  border: 1px solid #2D333A;
   border-radius: 30px;
-  background: #f4f4f4;
-  color: #171717;
+  background: #343A3F;
+  color: #ffffff;
   font-weight: 400;
   font-size: 1.2rem;
 }
 
 .todo_text:focus {
-  border: 1px solid #1F83A2;
+  border: 1px solid rgba(230, 92, 139, 0.3);
 }
 
 .todo_text::placeholder {
-  color: #7a7a7a;
+  color: #797E88;
 }
 
 .todo_btn {
@@ -94,9 +91,9 @@ h1 {
   width: 40px;
   height: 40px;
   cursor: pointer;
-  border: 1px solid #efefef;
+  border: 1px solid #2D333A;
   border-radius: 50%;
-  background: linear-gradient(150deg, rgba(126, 199, 189, 1) 0%, rgba(31, 131, 162, 1) 100%);
+  background: #E65C8B;
   font-weight: 700;
   font-size: 1.2rem;
   line-height: 0.5;
@@ -107,23 +104,26 @@ h1 {
 }
 
 .todo_btn:hover {
-  background: linear-gradient(150deg, rgb(106, 179, 169) 0%, rgba(11, 111, 142, 1) 100%);
+  background: #933b5a;
   color: #dcdcdc;
 }
 
 .todo_content {
   overflow-y: auto;
   height: 100%;
+  padding: 0 25px;
 }
 
 .todo_item {
   justify-content: space-between;
+  padding: 10px 0;
 }
 
 .todo {
   display: none;
   margin: 0;
   padding: 10px 10px;
+  color: white;
 }
 
 .todo.todo_active {
@@ -134,12 +134,12 @@ h1 {
   display: flex;
   align-items: center;
   list-style-type: none;
-  color: #131313;
+  color: #F4F7FF;
   text-transform: none;
 }
 
 .todo li:not(:last-child) {
-  border-bottom: 1px dashed #BAC3CB;
+  border-bottom: 1px dashed rgba(186, 195, 203, 0.1);
 }
 
 .completed {
@@ -155,18 +155,18 @@ h1 {
 }
 
 .completed.completed_active_border {
-  border-top: 1px solid #1F83A2;
+  border-top: 2px solid #333940;
 }
 
 .completed li {
   display: flex;
   align-items: center;
   list-style-type: none;
-  color: #afafaf;
+  color: #777C83;
 }
 
 .completed li:not(:last-child) {
-  border-bottom: 1px dashed #BAC3CB;
+  border-bottom: 1px dashed rgba(186, 195, 203, 0.1);
 }
 
 input[type=checkbox], label {
@@ -178,6 +178,7 @@ input[type=checkbox], label {
 
 .todo_label {
   max-width: 90%;
+  margin-left: 10px;
 }
 
 input[type=text], label {
@@ -186,11 +187,12 @@ input[type=text], label {
 }
 
 .btn_close {
-  margin: 10px;
-
-  width: 10px;
-  height: 10px;
+  padding: 10px;
   cursor: pointer;
+}
+
+.btn_close:hover {
+  color: rgba(230, 92, 139, 0.9);
 }
 
 .todo_footer {
@@ -201,7 +203,9 @@ input[type=text], label {
 .controls_list {
   display: flex;
   justify-content: space-evenly;
+  align-items: end;
   list-style-type: none;
+  width: 50%;
   padding: 0;
   margin: 0;
 }
@@ -213,18 +217,27 @@ input[type=text], label {
 }
 
 .controls_item {
-  color: #949494;
+  color: #797E88;
   font-size: 1.1rem;
-}
-
-.controls_item:not(:last-child) {
-  border-right: 2px solid #BAC3CB;
+  line-height: 3;
 }
 
 .controls_item.controls_item_active {
   font-weight: 700;
-  color: #000000;
+  color: #ffffff;
 }
+
+.controls_item_active:after {
+  position: relative;
+  content: "";
+  display: block;
+  margin: 0 auto;
+  height: 4px;
+  width: 100px;
+  background-color: #E65C8B;
+  transition: width 0.4s ease-out;
+}
+
 
 ::-webkit-scrollbar-button {
   background-repeat: no-repeat;
@@ -233,16 +246,15 @@ input[type=text], label {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #7EC7BD;
-  box-shadow: 0 0 3px #1F83A2 inset;
+  background-color: #484F58;
+  box-shadow: 0 0 3px #2D333C inset;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  background-color: #18677c;
-  box-shadow: 0 1px 1px #7EC7BD inset;
+  background-color: #2D333C;
   background-image: url('img/scrollbar.png');
   background-position: center;
   background-repeat: no-repeat;
@@ -261,25 +273,36 @@ input[type=text], label {
 
 @media screen and (max-width: 850px) {
 
+  .controls_list {
+    width: 100%;
+  }
+
   .todo_list {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    transform: none;
-    width: auto;
-    border-radius: 0;
-    padding: 0;
+    padding: 5px;
   }
 
   .todo_title {
-    margin-bottom: 0;
+    display: none;
+  }
+
+  .todo_content {
+    padding: 5px;
   }
 
   .todo_label {
-    margin: 0 0 0 10px;
     max-width: 80%;
-    font-size: 1.1rem;
+  }
+
+  .todo_active {
+    padding-top: 0;
+  }
+
+  .todo_item {
+    padding: 5px 0;
+  }
+
+  .todo_footer {
+    padding: 5px;
   }
 
   .controls_item {
@@ -287,7 +310,31 @@ input[type=text], label {
   }
 
   .controls_item.controls_item_active {
-    color: #000000;
+    color: #ffffff;
+  }
+
+  .create_new_todo {
+    margin: 15px 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .todo_label {
+    max-width: 80%;
+  }
+
+  .todo_content {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .todo_label {
+    max-width: 75%;
+  }
+
+  .controls_item {
+    font-size: 1rem;
   }
 }
 
@@ -297,6 +344,6 @@ input[type=text], label {
   }
 
   .controls_item {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 }
