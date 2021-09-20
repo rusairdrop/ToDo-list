@@ -80,7 +80,8 @@ document.addEventListener('click', function (event) {
     todoList.forEach(function (item, index) {
       
       if ('todo_' + index === btnAttr) {
-        todoList.splice(index, 1);
+        confirm('Are you sure you want to delete the task??') ?
+          todoList.splice(index, 1) : false;
       }
       displayTodoList();
       displayControlsList()
@@ -90,7 +91,8 @@ document.addEventListener('click', function (event) {
     completedList.forEach(function (item, index) {
       
       if ('completed_' + index === btnAttr) {
-        completedList.splice(index, 1);
+        confirm('Are you sure you want to delete the task??') ?
+          completedList.splice(index, 1) : false;
       }
       displayCompletedList();
       displayControlsList()
