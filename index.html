@@ -53,6 +53,7 @@
       </ul>
     </div>
   </div>
+  
   <div class="create_new_todo">
     <label>
       <input type="text" class="todo_text" placeholder="Add a task...">
@@ -67,6 +68,19 @@
   <div class="todo_content">
     <ul class="todo todo_active "></ul>
     <ul class="completed completed_active completed_active_border"></ul>
+  </div>
+  
+  <div class="overlay"></div>
+  <div class="confirm_modal">
+    <h4>Are you sure you want to delete the task?</h4>
+    <div class="confirm_buttons">
+      <button class="confirm_btn">
+        <span class="material-icons" data-confirm="true">check_circle_outline</span>
+      </button>
+      <button class="confirm_btn">
+        <span class="material-icons" data-confirm="false">highlight_off</span>
+      </button>
+    </div>
   </div>
   
   <div class="todo_footer">

@@ -16,6 +16,7 @@ if (localStorage.getItem('completed')) {
 
 function addNewTask() {
   let newTodo = {
+    id: Date.now(),
     todo: todoInput.value,
     checked: false,
   }
@@ -46,8 +47,8 @@ function displayTodoList() {
   todoList.map(function (item, index) {
     displayTodo += `
       <li class="todo_item" data-attr="todo_${index}">
-        <input type="checkbox" data-attr="${index}" id="todo_${index}" ${item.checked ? 'checked' : ''}>
-        <label class="todo_label" for="todo_${index}" style="${item.checked ? 'text-decoration: line-through' : ''}" >${item.todo}</label>
+        <input type="checkbox" data-attr="${index}" id="${item.id}" ${item.checked ? 'checked' : ''}>
+        <label class="todo_label" for="${item.id}" style="${item.checked ? 'text-decoration: line-through' : ''}" >${item.todo}</label>
         <span class="btn_close material-icons" data-attr="todo_${index}">delete_forever</span>
       </li>
       `;
@@ -63,8 +64,8 @@ function displayCompletedList() {
   completedList.map(function (item, index) {
     displayCompleted += `
       <li class="todo_item" data-attr="completed_${index}">
-        <input type="checkbox" data-attr="${index}" id="completed_${index}" ${item.checked ? 'checked' : ''}>
-        <label class="todo_label" for="completed_${index}" style="${item.checked ? 'text-decoration: line-through' : ''}" >${item.todo}</label>
+        <input type="checkbox" data-attr="${index}" id="${item.id}" ${item.checked ? 'checked' : ''}>
+        <label class="todo_label" for="${item.id}" style="${item.checked ? 'text-decoration: line-through' : ''}" >${item.todo}</label>
         <span class="btn_close material-icons" data-attr="completed_${index}">delete_forever</span>
       </li>
       `;
@@ -102,14 +103,14 @@ document.addEventListener('click', function (event) {
 });
 
 todo.addEventListener('change', function (event) {
-  let idInput = event.target.getAttribute('id');
+  let idInput = parseInt(event.target.getAttribute('id'));
   let forLabelTodo = todo.querySelector('[for="' + idInput + '"]');
   let valueLabelTodo = forLabelTodo.innerHTML;
   let DataAtr = event.target.getAttribute('data-attr');
   
   todoList.forEach(function (item) {
     
-    if (item.todo === valueLabelTodo) {
+    if (item.id === idInput) {
       item.checked = !item.checked
     }
     
@@ -130,13 +131,13 @@ todo.addEventListener('change', function (event) {
 
 completed.addEventListener('change', function (event) {
   
-  let idCompleted = event.target.getAttribute('id');
+  let idCompleted = parseInt(event.target.getAttribute('id'));
   let forLabelCompleted = completed.querySelector('[for="' + idCompleted + '"]');
   let valueLabelCompleted = forLabelCompleted.innerHTML;
   let DataAtr = event.target.getAttribute('data-attr');
   
   completedList.forEach(function (item) {
-    if (item.todo === valueLabelCompleted) {
+    if (item.id === idCompleted) {
       item.checked = !item.checked
     }
     

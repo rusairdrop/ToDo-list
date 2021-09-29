@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  background: #343A3F;
+  background: #3C4249;
 
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
@@ -122,7 +122,7 @@ h1 {
 .todo {
   display: none;
   margin: 0;
-  padding: 10px 10px;
+  padding: 10px;
   color: white;
 }
 
@@ -145,8 +145,7 @@ h1 {
 .completed {
   display: none;
   margin: 0;
-  padding: 15px 10px;
-  min-height: 20px;
+  padding: 10px;
 }
 
 .completed.completed_active {
@@ -268,6 +267,81 @@ input[type=text], label {
 
 ::-webkit-scrollbar {
   width: 7px;
+}
+
+/* === Confirm Modal === */
+
+.overlay {
+  display: none;
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: rgba(40, 46, 58, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.overlay.overlay_active {
+  display: block;
+}
+
+.confirm_modal {
+  position: fixed;
+  z-index: 11;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  max-width: 450px;
+  min-height: 150px;
+  padding: 20px;
+  margin: 10px auto;
+
+  border-radius: 10px;
+  background: #343A3F;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  line-height: 1.5;
+
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm_modal.confirm_modal_active {
+  display: flex;
+}
+.confirm_modal h4 {
+  margin-top: 10px;
+  margin-bottom: 35px;
+}
+
+.confirm_buttons {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.confirm_btn {
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  border: none;
+  background: none;
+  color: rgba(230, 92, 139, 0.6);
+}
+
+.confirm_btn span {
+  font-size: 2rem;
+}
+
+.confirm_btn:hover {
+  color: rgb(230, 92, 139);
+  cursor: pointer;
 }
 
 
