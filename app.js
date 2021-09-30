@@ -2,6 +2,9 @@ let todoInput = document.querySelector('.todo_text');
 let todoBtn = document.querySelector('.todo_btn');
 let todo = document.querySelector('.todo');
 let completed = document.querySelector('.completed');
+let overlay = document.querySelector('.overlay');
+let confirmModal = document.querySelector('.confirm_modal');
+let confirmBtn = document.querySelector('.confirm_btn');
 let todoList = [];
 let completedList = [];
 
@@ -71,41 +74,51 @@ function displayCompletedList() {
       `;
     completed.innerHTML = displayCompleted;
   });
-  
+}
+
+
+function openModal() {
+  overlay.classList.add('overlay_active');
+  confirmModal.classList.add('confirm_modal_active');
+}
+
+function closeModal() {
+  overlay.classList.remove('overlay_active');
+  confirmModal.classList.remove('confirm_modal_active');
 }
 
 document.addEventListener('click', function (event) {
   if (event.target.classList.contains('btn_close')) {
-    let btnAttr = event.target.getAttribute('data-attr');
+    openModal();
     
-    todoList.forEach(function (item, index) {
+    confirmBtn.onclick = () => {
       
-      if ('todo_' + index === btnAttr) {
-        confirm('Are you sure you want to delete the task??') ?
-          todoList.splice(index, 1) : false;
-      }
-      displayTodoList();
-      displayControlsList()
-      localStorage.setItem('todo', JSON.stringify(todoList));
-    });
-    
-    completedList.forEach(function (item, index) {
+      let listAttributes = event.target.getAttribute('data-attr').split('_');
+      let listType = listAttributes[0];
+      let index = parseInt(listAttributes[1]);
       
-      if ('completed_' + index === btnAttr) {
-        confirm('Are you sure you want to delete the task??') ?
-          completedList.splice(index, 1) : false;
+      if (listType === 'todo') {
+        todoList.splice(index, 1);
+        displayTodoList();
+        displayControlsList();
+        localStorage.setItem('todo', JSON.stringify(todoList));
+        closeModal();
       }
-      displayCompletedList();
-      displayControlsList()
-      localStorage.setItem('completed', JSON.stringify(completedList));
-    });
+      
+      if (listType === 'completed') {
+        completedList.splice(index, 1);
+        displayCompletedList();
+        displayControlsList();
+        localStorage.setItem('completed', JSON.stringify(todoList));
+        closeModal();
+      }
+    }
   }
 });
 
 todo.addEventListener('change', function (event) {
   let idInput = parseInt(event.target.getAttribute('id'));
   let forLabelTodo = todo.querySelector('[for="' + idInput + '"]');
-  let valueLabelTodo = forLabelTodo.innerHTML;
   let DataAtr = event.target.getAttribute('data-attr');
   
   todoList.forEach(function (item) {
@@ -133,7 +146,6 @@ completed.addEventListener('change', function (event) {
   
   let idCompleted = parseInt(event.target.getAttribute('id'));
   let forLabelCompleted = completed.querySelector('[for="' + idCompleted + '"]');
-  let valueLabelCompleted = forLabelCompleted.innerHTML;
   let DataAtr = event.target.getAttribute('data-attr');
   
   completedList.forEach(function (item) {

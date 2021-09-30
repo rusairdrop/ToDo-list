@@ -281,9 +281,10 @@ input[type=text], label {
   height: 100%;
   z-index: 10;
   background: rgba(40, 46, 58, 0.25);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
+
 .overlay.overlay_active {
   display: block;
 }
@@ -293,7 +294,9 @@ input[type=text], label {
   z-index: 11;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 350%);
+  opacity: 0;
+  transition: all ease 0.2s;
   width: 90vw;
   max-width: 450px;
   min-height: 150px;
@@ -301,20 +304,25 @@ input[type=text], label {
   margin: 10px auto;
 
   border-radius: 10px;
-  background: #343A3F;
+  background: #2e3438;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
   color: rgba(255, 255, 255, 0.8);
   text-align: center;
   line-height: 1.5;
 
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .confirm_modal.confirm_modal_active {
-  display: flex;
+  opacity: 1;
+  transform: translate(-50%, -50%);
 }
+
 .confirm_modal h4 {
   margin-top: 10px;
   margin-bottom: 35px;
