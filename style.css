@@ -296,7 +296,7 @@ input[type=text], label {
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
-  transition: all ease 0.2s;
+  transition: all ease 0.3s;
   width: 90vw;
   max-width: 450px;
   min-height: 150px;
@@ -312,13 +312,14 @@ input[type=text], label {
   text-align: center;
   line-height: 1.5;
 
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .confirm_modal.confirm_modal_active {
+  display: flex;
   opacity: 1;
 }
 
