@@ -194,6 +194,15 @@ input[type=text], label {
   color: rgba(230, 92, 139, 0.9);
 }
 
+.btn_edit {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.btn_edit:hover {
+  color: rgba(230, 92, 139, 0.9);
+}
+
 .todo_footer {
   padding-top: 15px;
   padding-bottom: 15px;
