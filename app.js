@@ -52,7 +52,7 @@ function displayTodoList() {
       <li class="todo_item" data-attr="todo_${index}">
         <input type="checkbox" data-attr="${index}" id="${item.id}" ${item.checked ? 'checked' : ''}>
         <label class="todo_label" for="${item.id}" style="${item.checked ? 'text-decoration: line-through' : ''}" >${item.todo}</label>
-        <span class="btn_close material-icons" data-attr="todo_${index}">delete_forever</span>
+        <span class="btn_delete material-icons" data-attr="todo_${index}">delete_forever</span>
       </li>
       `;
     
@@ -69,13 +69,12 @@ function displayCompletedList() {
       <li class="todo_item" data-attr="completed_${index}">
         <input type="checkbox" data-attr="${index}" id="${item.id}" ${item.checked ? 'checked' : ''}>
         <label class="todo_label" for="${item.id}" style="${item.checked ? 'text-decoration: line-through' : ''}" >${item.todo}</label>
-        <span class="btn_close material-icons" data-attr="completed_${index}">delete_forever</span>
+        <span class="btn_delete material-icons" data-attr="completed_${index}">delete_forever</span>
       </li>
       `;
     completed.innerHTML = displayCompleted;
   });
 }
-
 
 function openModal() {
   overlay.classList.add('overlay_active');
@@ -88,7 +87,7 @@ function closeModal() {
 }
 
 document.addEventListener('click', function (event) {
-  if (event.target.classList.contains('btn_close')) {
+  if (event.target.classList.contains('btn_delete')) {
     openModal();
     
     confirmBtn.onclick = () => {
@@ -99,19 +98,20 @@ document.addEventListener('click', function (event) {
       
       if (listType === 'todo') {
         todoList.splice(index, 1);
-        displayTodoList();
-        displayControlsList();
-        localStorage.setItem('todo', JSON.stringify(todoList));
-        closeModal();
       }
       
       if (listType === 'completed') {
         completedList.splice(index, 1);
-        displayCompletedList();
-        displayControlsList();
-        localStorage.setItem('completed', JSON.stringify(todoList));
-        closeModal();
       }
+      
+      displayTodoList();
+      displayCompletedList();
+      displayControlsList();
+      
+      localStorage.setItem('todo', JSON.stringify(todoList));
+      localStorage.setItem('completed', JSON.stringify(todoList));
+      
+      closeModal();
     }
   }
 });
