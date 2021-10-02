@@ -31,7 +31,7 @@ h1 {
 
 .todo_header {
   background: #3C4249;
-  border-bottom: 2px solid #343A41;
+  border-bottom: 2px solid #444b54;
 }
 
 .header_inner {
@@ -116,7 +116,7 @@ h1 {
 
 .todo_item {
   justify-content: space-between;
-  padding: 10px 0;
+  padding: 5px 0;
 }
 
 .todo {
@@ -154,7 +154,7 @@ h1 {
 }
 
 .completed.completed_active_border {
-  border-top: 2px solid #333940;
+  border-top: 2px solid #444b54;
 }
 
 .completed li {
@@ -178,6 +178,7 @@ input[type=checkbox], label {
 .todo_label {
   max-width: 90%;
   margin-left: 10px;
+  padding: 0;
 }
 
 input[type=text], label {
@@ -195,6 +196,7 @@ input[type=text], label {
 }
 
 .btn_edit {
+
   padding: 10px;
   cursor: pointer;
 }
@@ -397,19 +399,24 @@ input[type=text], label {
   opacity: 1;
 }
 
-.edit_form {
-  padding-top: 15px;
+.edit_modal h4 {
+  margin: 10px;
+}
+
+.edit_modal .confirm_buttons {
+  margin: 10px;
 }
 
 #edit {
   resize: none;
-  border: none;
+  border: 1px solid #3b4348;
   border-radius: 10px;
-  padding: 5px 10px;
+  padding: 10px;
   background: #2e3438;
   color: white;
   width: 80vw;
   max-width: 400px;
+  font-size: 1rem;
 }
 
 #edit:focus {
@@ -458,10 +465,6 @@ input[type=text], label {
 
   .todo_active {
     padding-top: 0;
-  }
-
-  .todo_item {
-    padding: 5px 0;
   }
 
   .todo_footer {

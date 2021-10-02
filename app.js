@@ -111,7 +111,7 @@ document.addEventListener('click', function (event) {
       if (listType === 'completed') {
         completedList.splice(index, 1);
         displayCompletedList();
-        localStorage.setItem('completed', JSON.stringify(todoList));
+        localStorage.setItem('completed', JSON.stringify(completedList));
       }
       
       displayControlsList();
@@ -133,7 +133,7 @@ document.addEventListener('click', function (event) {
     if (listType === 'todo') {
       editForm.value = todoList[index].todo;
       editBtn.onclick = () => {
-
+        
         todoList[index].todo = editForm.value;
         displayTodoList();
         localStorage.setItem('todo', JSON.stringify(todoList));
@@ -146,20 +146,16 @@ document.addEventListener('click', function (event) {
     if (listType === 'completed') {
       editForm.value = completedList[index].todo;
       editBtn.onclick = () => {
-
         completedList[index].todo = editForm.value;
         displayCompletedList();
-        localStorage.setItem('completed', JSON.stringify(todoList));
+        localStorage.setItem('completed', JSON.stringify(completedList));
         
         displayControlsList();
         closeModal();
       }
     }
-    
-    
   }
 });
-
 
 todo.addEventListener('change', function (event) {
   let idInput = parseInt(event.target.getAttribute('id'));
