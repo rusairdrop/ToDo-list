@@ -100,19 +100,17 @@ document.addEventListener('click', function (event) {
       
       if (listType === 'todo') {
         todoList.splice(index, 1);
+        displayTodoList();
+        localStorage.setItem('todo', JSON.stringify(todoList));
       }
       
       if (listType === 'completed') {
         completedList.splice(index, 1);
+        displayCompletedList();
+        localStorage.setItem('completed', JSON.stringify(todoList));
       }
       
-      displayTodoList();
-      displayCompletedList();
       displayControlsList();
-      
-      localStorage.setItem('todo', JSON.stringify(todoList));
-      localStorage.setItem('completed', JSON.stringify(todoList));
-      
       closeModal();
     }
   }
