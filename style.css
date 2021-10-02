@@ -7,7 +7,7 @@ body {
   background: #3C4249;
 
   font-family: 'Roboto', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 h1 {
@@ -226,7 +226,7 @@ input[type=text], label {
 
 .controls_item {
   color: #797E88;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 3;
 }
 
@@ -361,6 +361,78 @@ input[type=text], label {
   cursor: pointer;
 }
 
+
+.edit_modal {
+  position: fixed;
+  z-index: 11;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  opacity: 0;
+  transition: all ease 0.3s;
+  width: 90vw;
+  max-width: 450px;
+  min-height: 150px;
+  padding: 5px;
+  margin: 10px auto;
+
+  border-radius: 10px;
+  background: #2e3438;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.edit_modal.edit_modal_active {
+  display: flex;
+  opacity: 1;
+}
+
+.edit_form {
+  padding-top: 15px;
+}
+
+#edit {
+  resize: none;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  background: #2e3438;
+  color: white;
+  width: 80vw;
+  max-width: 400px;
+}
+
+#edit:focus {
+  outline: none;
+}
+
+.edit_btn {
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  border: none;
+  background: none;
+  color: rgba(230, 92, 139, 0.6);
+}
+
+.edit_btn span {
+  font-size: 2rem;
+}
+
+.edit_btn:hover {
+  color: rgb(230, 92, 139);
+  cursor: pointer;
+}
 
 @media screen and (max-width: 850px) {
 
