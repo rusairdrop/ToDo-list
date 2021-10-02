@@ -131,7 +131,7 @@ document.addEventListener('click', function (event) {
     let index = parseInt(listAttributes[1]);
     
     if (listType === 'todo') {
-      editForm.textContent = todoList[index].todo;
+      editForm.value = todoList[index].todo;
       editBtn.onclick = () => {
 
         todoList[index].todo = editForm.value;
@@ -144,7 +144,7 @@ document.addEventListener('click', function (event) {
     }
     
     if (listType === 'completed') {
-      editForm.textContent = completedList[index].todo;
+      editForm.value = completedList[index].todo;
       editBtn.onclick = () => {
 
         completedList[index].todo = editForm.value;
