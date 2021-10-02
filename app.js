@@ -5,6 +5,9 @@ let completed = document.querySelector('.completed');
 let overlay = document.querySelector('.overlay');
 let confirmModal = document.querySelector('.confirm_modal');
 let confirmBtn = document.querySelector('.confirm_btn');
+let editModal = document.querySelector('.edit_modal');
+let editForm = document.querySelector('#edit');
+let editBtn = document.querySelector('.edit_btn');
 let todoList = [];
 let completedList = [];
 
@@ -52,6 +55,7 @@ function displayTodoList() {
       <li class="todo_item" data-attr="todo_${index}">
         <input type="checkbox" data-attr="${index}" id="${item.id}" ${item.checked ? 'checked' : ''}>
         <label class="todo_label" for="${item.id}" style="${item.checked ? 'text-decoration: line-through' : ''}" >${item.todo}</label>
+        <span class="btn_edit material-icons" data-attr="todo_${index}">edit</span>
         <span class="btn_delete material-icons" data-attr="todo_${index}">delete_forever</span>
       </li>
       `;
@@ -69,6 +73,7 @@ function displayCompletedList() {
       <li class="todo_item" data-attr="completed_${index}">
         <input type="checkbox" data-attr="${index}" id="${item.id}" ${item.checked ? 'checked' : ''}>
         <label class="todo_label" for="${item.id}" style="${item.checked ? 'text-decoration: line-through' : ''}" >${item.todo}</label>
+        <span class="btn_edit material-icons" data-attr="completed_${index}">edit</span>
         <span class="btn_delete material-icons" data-attr="completed_${index}">delete_forever</span>
       </li>
       `;
@@ -84,6 +89,7 @@ function openModal() {
 function closeModal() {
   overlay.classList.remove('overlay_active');
   confirmModal.classList.remove('confirm_modal_active');
+  editModal.classList.remove('edit_modal_active');
 }
 
 document.addEventListener('click', function (event) {
@@ -98,20 +104,55 @@ document.addEventListener('click', function (event) {
       
       if (listType === 'todo') {
         todoList.splice(index, 1);
+        displayTodoList();
+        localStorage.setItem('todo', JSON.stringify(todoList));
       }
       
       if (listType === 'completed') {
         completedList.splice(index, 1);
+        displayCompletedList();
+        localStorage.setItem('completed', JSON.stringify(completedList));
       }
       
-      displayTodoList();
-      displayCompletedList();
       displayControlsList();
-      
-      localStorage.setItem('todo', JSON.stringify(todoList));
-      localStorage.setItem('completed', JSON.stringify(todoList));
-      
       closeModal();
+    }
+  }
+});
+
+document.addEventListener('click', function (event) {
+  if (event.target.classList.contains('btn_edit')) {
+    
+    overlay.classList.add('overlay_active');
+    editModal.classList.add('edit_modal_active');
+    
+    let listAttributes = event.target.getAttribute('data-attr').split('_');
+    let listType = listAttributes[0];
+    let index = parseInt(listAttributes[1]);
+    
+    if (listType === 'todo') {
+      editForm.value = todoList[index].todo;
+      editBtn.onclick = () => {
+        
+        todoList[index].todo = editForm.value;
+        displayTodoList();
+        localStorage.setItem('todo', JSON.stringify(todoList));
+        
+        displayControlsList();
+        closeModal();
+      }
+    }
+    
+    if (listType === 'completed') {
+      editForm.value = completedList[index].todo;
+      editBtn.onclick = () => {
+        completedList[index].todo = editForm.value;
+        displayCompletedList();
+        localStorage.setItem('completed', JSON.stringify(completedList));
+        
+        displayControlsList();
+        closeModal();
+      }
     }
   }
 });

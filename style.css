@@ -7,7 +7,7 @@ body {
   background: #3C4249;
 
   font-family: 'Roboto', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 h1 {
@@ -31,7 +31,7 @@ h1 {
 
 .todo_header {
   background: #3C4249;
-  border-bottom: 2px solid #343A41;
+  border-bottom: 2px solid #444b54;
 }
 
 .header_inner {
@@ -116,7 +116,7 @@ h1 {
 
 .todo_item {
   justify-content: space-between;
-  padding: 10px 0;
+  padding: 5px 0;
 }
 
 .todo {
@@ -154,7 +154,7 @@ h1 {
 }
 
 .completed.completed_active_border {
-  border-top: 2px solid #333940;
+  border-top: 2px solid #444b54;
 }
 
 .completed li {
@@ -178,6 +178,7 @@ input[type=checkbox], label {
 .todo_label {
   max-width: 90%;
   margin-left: 10px;
+  padding: 0;
 }
 
 input[type=text], label {
@@ -191,6 +192,16 @@ input[type=text], label {
 }
 
 .btn_delete:hover {
+  color: rgba(230, 92, 139, 0.9);
+}
+
+.btn_edit {
+
+  padding: 10px;
+  cursor: pointer;
+}
+
+.btn_edit:hover {
   color: rgba(230, 92, 139, 0.9);
 }
 
@@ -217,7 +228,7 @@ input[type=text], label {
 
 .controls_item {
   color: #797E88;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 3;
 }
 
@@ -353,6 +364,83 @@ input[type=text], label {
 }
 
 
+.edit_modal {
+  position: fixed;
+  z-index: 11;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  opacity: 0;
+  transition: all ease 0.3s;
+  width: 90vw;
+  max-width: 450px;
+  min-height: 150px;
+  padding: 5px;
+  margin: 10px auto;
+
+  border-radius: 10px;
+  background: #2e3438;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.edit_modal.edit_modal_active {
+  display: flex;
+  opacity: 1;
+}
+
+.edit_modal h4 {
+  margin: 10px;
+}
+
+.edit_modal .confirm_buttons {
+  margin: 10px;
+}
+
+#edit {
+  resize: none;
+  border: 1px solid #3b4348;
+  border-radius: 10px;
+  padding: 10px;
+  background: #2e3438;
+  color: white;
+  width: 80vw;
+  max-width: 400px;
+  font-size: 1rem;
+}
+
+#edit:focus {
+  outline: none;
+}
+
+.edit_btn {
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  border: none;
+  background: none;
+  color: rgba(230, 92, 139, 0.6);
+}
+
+.edit_btn span {
+  font-size: 2rem;
+}
+
+.edit_btn:hover {
+  color: rgb(230, 92, 139);
+  cursor: pointer;
+}
+
 @media screen and (max-width: 850px) {
 
   .controls_list {
@@ -377,10 +465,6 @@ input[type=text], label {
 
   .todo_active {
     padding-top: 0;
-  }
-
-  .todo_item {
-    padding: 5px 0;
   }
 
   .todo_footer {
