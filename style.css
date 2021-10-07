@@ -6,7 +6,7 @@ body {
   margin: 0;
   background: #3C4249;
 
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
 }
 
@@ -177,7 +177,6 @@ input[type=checkbox], label {
 
 .todo_label {
   max-width: 90%;
-  margin-left: 10px;
   padding: 0;
 }
 
@@ -189,6 +188,11 @@ input[type=text], label {
 .btn_delete {
   padding: 10px;
   cursor: pointer;
+}
+
+span.btn_delete.material-icons,
+span.btn_edit.material-icons {
+  font-size: 1.3rem;
 }
 
 .btn_delete:hover {
@@ -204,6 +208,64 @@ input[type=text], label {
 .btn_edit:hover {
   color: rgba(230, 92, 139, 0.9);
 }
+
+input[type="checkbox"]:checked,
+input[type="checkbox"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+
+input[type="checkbox"]:checked + label,
+input[type="checkbox"]:not(:checked) + label {
+  display: inline-block;
+  position: relative;
+  padding-left: 35px;
+}
+
+input[type="checkbox"]:checked + label:before,
+input[type="checkbox"]:not(:checked) + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(50% - 10px);
+  width: 17px;
+  height: 17px;
+  border: 1px solid #2D333A;
+  background-color: #343A3F;
+  border-radius: 100%;
+}
+
+input[type="checkbox"]:checked + label:after,
+input[type="checkbox"]:not(:checked) + label:after {
+  content: "";
+  position: absolute;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+
+  left: 4px;
+  top: calc(50% - 5px);
+  width: 8px;
+  height: 4px;
+  border-radius: 1px;
+  border-left: 3px solid #E65C8B;
+  border-bottom: 3px solid #E65C8B;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+input[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+}
+
+input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
+
 
 .todo_footer {
   padding-top: 15px;
@@ -485,10 +547,6 @@ input[type=text], label {
 }
 
 @media screen and (max-width: 600px) {
-  .todo_label {
-    max-width: 80%;
-  }
-
   .todo_content {
     padding: 0;
   }
