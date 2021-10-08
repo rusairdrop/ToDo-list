@@ -202,7 +202,6 @@ span.btn_edit.material-icons {
 }
 
 .btn_edit {
-
   padding: 10px;
   cursor: pointer;
 }
@@ -438,7 +437,7 @@ input[type="checkbox"]:checked + label:after {
   max-width: 450px;
   min-height: 150px;
   padding: 5px;
-  margin: 10px auto;
+  margin: 0 auto;
   border-radius: 10px;
   background: #2e3438;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
@@ -459,7 +458,11 @@ input[type="checkbox"]:checked + label:after {
 }
 
 .edit_modal .confirm_buttons {
-  margin: 10px;
+  margin: 5px;
+}
+
+textarea {
+  font-family: 'Manrope', sans-serif;
 }
 
 #edit {
