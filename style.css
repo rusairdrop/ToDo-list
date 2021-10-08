@@ -27,7 +27,7 @@ h1 {
 
 .todo_header {
   background: #3C4249;
-  border-bottom: 2px solid #444b54;
+  border-bottom: 1px solid #343A3F;
 }
 
 .header_logo {
@@ -66,19 +66,19 @@ h1 {
 }
 
 .todo_text {
-  padding: 1px 20px;
-  height: 44px;
+  padding: 1px 45px 1px 20px;
+  height: 40px;
   outline: none;
   border: 1px solid #2D333A;
   border-radius: 30px;
   background: #343A3F;
   color: #ffffff;
   font-weight: 400;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .todo_text:focus {
-  border: 1px solid rgba(230, 92, 139, 0.3);
+  border: 1px solid #77475C;
 }
 
 .todo_text::placeholder {
@@ -90,23 +90,25 @@ h1 {
   top: 2px;
   right: 2px;
   padding: 0;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   cursor: pointer;
-  border: 1px solid #2D333A;
+  border: 1px solid #343A3F;
   border-radius: 50%;
-  background: #E65C8B;
-  font-weight: 700;
-  font-size: 1.2rem;
+  background: #BA5478;
   line-height: 0.5;
-  color: #ffffff;
+  color: #343A3F;
   text-align: center;
   text-transform: uppercase;
   transition: all 0.3s ease;
 }
 
+.todo_btn span {
+  font-size: 1.7rem;
+}
+
 .todo_btn:hover {
-  background: #933b5a;
+  background: #9b4765;
   color: #dcdcdc;
 }
 
@@ -141,7 +143,7 @@ h1 {
 }
 
 .todo li:not(:last-child) {
-  border-bottom: 1px dashed rgba(186, 195, 203, 0.1);
+  border-bottom: 1px dashed #4D535A;
 }
 
 .completed {
@@ -156,7 +158,7 @@ h1 {
 }
 
 .completed.completed_active_border {
-  border-top: 2px solid #444b54;
+  border-top: 1px solid #343A3F;
 }
 
 .completed li {
@@ -167,7 +169,7 @@ h1 {
 }
 
 .completed li:not(:last-child) {
-  border-bottom: 1px dashed rgba(186, 195, 203, 0.1);
+  border-bottom: 1px dashed #4D535A;
 }
 
 input[type=checkbox], label {
@@ -198,7 +200,7 @@ span.btn_edit.material-icons {
 }
 
 .btn_delete:hover {
-  color: rgba(230, 92, 139, 0.9);
+  color: #BA5478;
 }
 
 .btn_edit {
@@ -207,7 +209,7 @@ span.btn_edit.material-icons {
 }
 
 .btn_edit:hover {
-  color: rgba(230, 92, 139, 0.9);
+  color: #BA5478;
 }
 
 input[type="checkbox"]:checked,
@@ -249,8 +251,8 @@ input[type="checkbox"]:not(:checked) + label:after {
   width: 8px;
   height: 4px;
   border-radius: 1px;
-  border-left: 3px solid #E65C8B;
-  border-bottom: 3px solid #E65C8B;
+  border-left: 3px solid #BA5478;
+  border-bottom: 3px solid #BA5478;
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
@@ -305,7 +307,7 @@ input[type="checkbox"]:checked + label:after {
   margin: 0 auto;
   height: 4px;
   width: 100px;
-  background-color: #E65C8B;
+  background-color: #BA5478;
   transition: width 0.4s ease-out;
 }
 
@@ -417,7 +419,7 @@ input[type="checkbox"]:checked + label:after {
 }
 
 .confirm_btn:hover {
-  color: rgb(230, 92, 139);
+  color: #BA5478;
   cursor: pointer;
 }
 
@@ -495,7 +497,7 @@ textarea {
 }
 
 .edit_btn:hover {
-  color: rgb(230, 92, 139);
+  color: #BA5478;
   cursor: pointer;
 }
 
