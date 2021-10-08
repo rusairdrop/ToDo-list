@@ -502,25 +502,12 @@ textarea {
 }
 
 @media screen and (max-width: 850px) {
-
-  .controls_list {
-    width: 100%;
-  }
-
   .todo_list {
     padding: 5px;
   }
 
-  .header_logo {
-    display: none;
-  }
-
   .todo_content {
     padding: 5px;
-  }
-
-  .todo_label {
-    max-width: 80%;
   }
 
   .todo_active {
@@ -535,6 +522,10 @@ textarea {
     font-size: 1.1rem;
   }
 
+  .controls_list {
+    width: 70%;
+  }
+
   .controls_item.controls_item_active {
     color: #ffffff;
   }
@@ -545,6 +536,14 @@ textarea {
 }
 
 @media screen and (max-width: 600px) {
+  .controls_list {
+    width: 100%;
+  }
+
+  .header_logo {
+    display: none;
+  }
+
   .todo_content {
     padding: 0;
   }
