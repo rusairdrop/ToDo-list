@@ -36,7 +36,7 @@
         href="https://fonts.googleapis.com">
   <link rel="preconnect"
         href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet">
   <title>TODO List</title>
@@ -45,7 +45,7 @@
 <div class="todo_list">
   <div class="todo_header">
     <div class="header_inner">
-      <h1 class="todo_title">ToDo List</h1>
+      <img class="header_logo" src="img/logo2.png" alt="logo">
       <ul class="controls_list">
         <li class="controls_item controls_item_active" data-ctrl="ctrl_1"></li>
         <li class="controls_item" data-ctrl="ctrl_2"></li>
@@ -83,12 +83,11 @@
     </div>
   </div>
   
-  <div class="overlay"></div>
   <div class="edit_modal">
-    <h4>Edit task?</h4>
+    <h4>Edit the task</h4>
     <form class="edit_form">
       <label for="edit">
-        <textarea name="edit" id="edit" rows="3">тут текст заметки</textarea>
+        <textarea name="edit" id="edit" rows="5">тут текст заметки</textarea>
       </label>
     </form>
     <div class="confirm_buttons">
@@ -99,7 +98,7 @@
         <span class="material-icons" onclick="closeModal()">highlight_off</span>
       </button>
     </div>
-    
+  
   </div>
   
   <div class="todo_footer">

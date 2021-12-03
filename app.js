@@ -59,9 +59,8 @@ function displayTodoList() {
         <span class="btn_delete material-icons" data-attr="todo_${index}">delete_forever</span>
       </li>
       `;
-    
-    todo.innerHTML = displayTodo;
   });
+  todo.innerHTML = displayTodo;
 }
 
 function displayCompletedList() {
@@ -77,8 +76,8 @@ function displayCompletedList() {
         <span class="btn_delete material-icons" data-attr="completed_${index}">delete_forever</span>
       </li>
       `;
-    completed.innerHTML = displayCompleted;
   });
+  completed.innerHTML = displayCompleted;
 }
 
 function openModal() {
