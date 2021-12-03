@@ -51,13 +51,12 @@ function displayTodoList() {
   
   let displayTodo = '';
   todoList.map(function (item, index) {
-    // <span className="btn_delete material-icons" data-attr="todo_${index}">delete_forever</span>
     displayTodo += `
       <li class="todo_item" data-attr="todo_${index}">
         <input type="checkbox" data-attr="${index}" id="${item.id}" ${item.checked ? 'checked' : ''}>
         <label class="todo_label" for="${item.id}" style="${item.checked ? 'text-decoration: line-through' : ''}" >${item.todo}</label>
         <span class="btn_edit material-icons" data-attr="todo_${index}">edit</span>
-        
+        <span class="btn_delete material-icons" data-attr="todo_${index}">delete_forever</span>
       </li>
       `;
   });
@@ -69,12 +68,11 @@ function displayCompletedList() {
   
   let displayCompleted = '';
   completedList.map(function (item, index) {
-    // <span className="btn_edit material-icons" data-attr="completed_${index}">edit</span>
     displayCompleted += `
       <li class="todo_item" data-attr="completed_${index}">
         <input type="checkbox" data-attr="${index}" id="${item.id}" ${item.checked ? 'checked' : ''}>
         <label class="todo_label" for="${item.id}" style="${item.checked ? 'text-decoration: line-through' : ''}" >${item.todo}</label>
-        
+        <span class="btn_edit material-icons" data-attr="completed_${index}">edit</span>
         <span class="btn_delete material-icons" data-attr="completed_${index}">delete_forever</span>
       </li>
       `;
